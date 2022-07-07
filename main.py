@@ -343,7 +343,7 @@ def get_waka_time_stats():
                 stats = stats + '⌚︎ ' + translate['Timezone'] + ': ' + tzone + '\n\n'
 
             if showLanguage.lower() in truthy:
-                if len(data['data']['languages']) == 0:
+                if data['data']['languages'] is None:
                     lang_list = no_activity
                 else:
                     lang_list = make_list(data['data']['languages'])
