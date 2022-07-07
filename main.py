@@ -331,7 +331,7 @@ def get_waka_time_stats():
     else:
         data = request.json()
         if showCommit.lower() in truthy:
-            stats = stats + generate_commit_list(tz=data['data']['timezone']) + '\n\n'
+            stats = stats + generate_commit_list(tz='Europe/Paris') + '\n\n'
 
         if showTimeZone.lower() in truthy or showLanguage.lower() in truthy or showEditors.lower() in truthy or \
                 showProjects.lower() in truthy or showOs.lower() in truthy:
