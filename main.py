@@ -350,14 +350,14 @@ def get_waka_time_stats():
                 stats = stats + '💬 ' + translate['Languages'] + ': \n' + lang_list + '\n\n'
 
             if showEditors.lower() in truthy:
-                if len(data['data']['editors']) == 0:
+                if data['data']['editors'] is None:
                     edit_list = no_activity
                 else:
                     edit_list = make_list(data['data']['editors'])
                 stats = stats + '🔥 ' + translate['Editors'] + ': \n' + edit_list + '\n\n'
 
             if showProjects.lower() in truthy:
-                if len(data['data']['projects']) == 0:
+                if data['data']['projects'] is None:
                     project_list = no_activity
                 else:
                     # Re-order the project list by percentage
@@ -367,7 +367,7 @@ def get_waka_time_stats():
                 stats = stats + '🐱‍💻 ' + translate['Projects'] + ': \n' + project_list + '\n\n'
 
             if showOs.lower() in truthy:
-                if len(data['data']['operating_systems']) == 0:
+                if data['data']['operating_systems'] is None:
                     os_list = no_activity
                 else:
                     os_list = make_list(data['data']['operating_systems'])
