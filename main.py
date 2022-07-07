@@ -323,7 +323,7 @@ def generate_commit_list(tz):
 def get_waka_time_stats():
     stats = ''
     request = requests.get(
-        f"https://{waka_url}/api/v1/users/current/stats/last_7_days?api_key={waka_key}")
+        f"{waka_url}/api/v1/users/current/stats/last_7_days?api_key={waka_key}")
     no_activity = translate["No Activity Tracked This Week"]
 
     if request.status_code == 401:
@@ -478,9 +478,9 @@ def get_stats(github):
         yearly_data = get_yearly_data()
 
     if show_total_code_time.lower() in truthy:
-        actual_base_url = f"{waka_url}/api/" if "wakatime.com" in waka_url else f"{waka_url}/api/compat/wakatime/"
+        actual_base_url = f"{waka_url}/api" if "wakatime.com" in waka_url else f"{waka_url}/api/compat/wakatime"
         request = requests.get(
-            f"https://{actual_base_url}/v1/users/current/all_time_since_today?api_key={waka_key}")
+            f"{actual_base_url}/v1/users/current/all_time_since_today?api_key={waka_key}")
         if request.status_code == 401:
             print("Error With WAKA time API returned " + str(request.status_code) + " Response " + str(request.json()))
         elif "text" not in request.json()["data"]:
